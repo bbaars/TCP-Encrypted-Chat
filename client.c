@@ -32,6 +32,7 @@ int main(int argc, char** argv)
 	"\n-m [client_id] [message]    send a message to a client"
 	"\n-b [message]                send a broadcast message"
 	"\n-l                          retrieve a list of all clients"
+	"\n-a [password]               request admin status"
 	"\n-k [client_id]              kick off another client (admin req.)"
 	"\n-q                          Quit"
 	"\n--------------------------------------------------------------------\n"
@@ -98,7 +99,7 @@ while (run)
 					printf("Disconnected from servers\n"); //Newline
 					break;
 				}
-				printf("\nGot from server: %s\nEnter a command:",line);
+				printf("\nGot from server: %s\nEnter a command: ",line);
 				fflush(stdout);
 			}
 		}

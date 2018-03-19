@@ -147,6 +147,14 @@ void parse_message(struct client_info & client) {
 			case 'A':
 				if(client.message.substr(client.message.find("-")+3).compare(PASSWORD) == 0) {
 					client.is_admin = true;
+					for (std::map<std::string, struct client_info>::iterator it=connected_clients.begin(); it!=connected_clients.end(); ++it)
+					{
+						if (client.username == it->second.username)
+						{
+							it->second.is_admin = true;
+						}
+					}				
+
 					send(client.from_socket, "You are now an admin\n", strlen("You are now an admin\n") + 1, 0);
 				} else
 					send(client.from_socket, passwordError, strlen(passwordError) + 1, 0);
