@@ -1,6 +1,7 @@
 # TCP-Encrypted-Chat
 
-##Part 1
+## Part 1
+
 For part 1, you must support the following functionality:
 
 The server should allow for multiple simultaneous clients (you will likely need to use select or threads for this).
@@ -19,7 +20,9 @@ The C version needs a RSA public and private key in PEM format. These can be pro
 ```
 openssl genpkey -algorithm RSA -out RSApriv.pem -pkeyopt rsa_keygen_bits:2048
 openssl rsa -pubout -in RSApriv.pem -out RSApub.pem
-The Java version needs the keys in DER format. You can produce the correct keys with the above commands plus:
+The Java version needs the keys in DER format. ``` 
+You can produce the correct keys with the above commands plus:
+```
 openssl rsa -inform PEM -outform DER -pubin -pubout -in RSApub.pem -out RSApub.der
 openssl pkcs8 -topk8 -nocrypt -inform PEM -outform DER -in RSApriv.pem -out RSApriv.der '
 ```
