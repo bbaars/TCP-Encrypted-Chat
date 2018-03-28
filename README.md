@@ -15,9 +15,7 @@ For part 2, you must encrypt all messages being sent from client to server, and 
 
 The C version needs a RSA public and private key in PEM format. These can be produced with the commands:
 
-`
-openssl genpkey -algorithm RSA -out RSApriv.pem -pkeyopt rsa_keygen_bits:2048 
-
+`openssl genpkey -algorithm RSA -out RSApriv.pem -pkeyopt rsa_keygen_bits:2048 
 openssl rsa -pubout -in RSApriv.pem -out RSApub.pem `
 
 If you are using pthreads (or any other thread system), openssl's libcrypto needs some additional setup. Please take a look at the pthreads section of [Named Link] https://github.com/openssl/openssl/blob/OpenSSL_1_0_1-stable/crypto/threads/mttest.c. From there, copy the pthreads version of thread_setup, and any other functions and variables it depends on. Call thread_setup as early as possible in your program.
